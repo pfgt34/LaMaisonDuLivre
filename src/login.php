@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Vérifier si l'utilisateur existe et si le mot de passe est correct
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && $user['password'] === $password) {
         // Vérifier le rôle (admin)
         if ($user['role'] == 'admin') {
             // Démarrer la session et rediriger vers la page d'administration

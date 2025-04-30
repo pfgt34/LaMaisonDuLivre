@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Vérifier si l'utilisateur est connecté et si c'est un administrateur
+// Vérifier si l'utilisateur est connecté et s'il est un administrateur
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header('Location: login.html');
     exit;
@@ -25,7 +25,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                 <li><a href="livres.html">Nos Livres</a></li>
                 <li><a href="abonnements.html">Abonnements</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="logout.php">Se déconnecter</a></li>
+                <li><a href="logout.php">Se déconnecter</a></li> <!-- Lien pour se déconnecter -->
             </ul>
         </nav>
     </header>
