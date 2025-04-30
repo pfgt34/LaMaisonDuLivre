@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # Mot de passe pour l'utilisateur root
+      MYSQL_DATABASE: maison_du_livre  # Nom de la base de données
+    ports:
+      - "3306:3306"  # Port MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volume persistant pour la base de données
+
+  php:
+    image: php:8.2-apache  # PHP avec Apache
+    container_name: php-container
+    volumes:
+      - ./src:/var/www/html  # Lien vers le répertoire src contenant ton code PHP
+    ports:
+      - "8080:80"  # Port pour accéder à PHP
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin  # Image phpMyAdmin pour la gestion de la base de données
+    container_name: phpmyadmin-container
+    environment:
+      PMA_HOST: mysql-container  # Nom du service MySQL
+      PMA_PORT: 3306  # Port de connexion de MySQL
+    ports:
+      - "8081:80"  # Port pour accéder à phpMyAdmin
+
+volumes:
+  mysql_data:
