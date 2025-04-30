@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Abonnements</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestion des Abonnements</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="livres.html">Nos Livres</a></li>
+                <li><a href="abonnements.html">Abonnements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Liste des Abonnements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Type d'Abonnement</th>
+                    <th>Date d'inscription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Récupérer les abonnements de la base de données
+                include '../src/connexion.php';
+                $sql = "SELECT * FROM abonnements";
+                $stmt = $pdo->query($sql);
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<tr>
+                            <td>{$row['nom']}</td>
+                            <td>{$row['email']}</td>
+                            <td>{$row['type_abonnement']}</td>
+                            <td>{$row['date_inscription']}</td>
+                            <td><a href='modifier_abonnement.php?id={$row['id']}'>Modifier</a> | 
+                                <a href='supprimer_abonnement.php?id={$row['id']}'>Supprimer</a></td>
+                          </tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 La Maison du Livre - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

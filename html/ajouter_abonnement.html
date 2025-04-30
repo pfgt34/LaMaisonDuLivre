@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - La Maison du Livre</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Chemin vers le fichier CSS -->
+    <title>Ajouter un Abonnement</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
-        <h1>Contactez-nous</h1>
+        <h1>Ajouter un Abonnement</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="livres.html">Nos Livres</a></li>
                 <li><a href="abonnements.html">Abonnements</a></li>
-                <li><a href="inscription.html">S'inscrire</a></li> <!-- Lien vers l'inscription -->
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Formulaire de Contact</h2>
-        <form action="#">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required><br><br>
+        <h2>Formulaire d'Ajout d'Abonnement</h2>
+        <form action="ajouter_abonnement.php" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required><br><br>
 
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required><br><br>
 
-            <label for="message">Message :</label><br>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <label for="abonnement">Type d'Abonnement :</label>
+            <select id="abonnement" name="abonnement" required>
+                <option value="annuel">Annuel</option>
+                <option value="mensuel">Mensuel</option>
+            </select><br><br>
 
-            <button type="submit">Envoyer</button>
+            <button type="submit">Ajouter</button>
         </form>
     </main>
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprunter un Livre</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Emprunter un Livre</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="livres.html">Nos Livres</a></li>
+                <li><a href="abonnements.html">Abonnements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Formulaire d'Emprunt</h2>
+        <form action="ajouter_emprunt.php" method="POST">
+            <label for="id_livre">Livre :</label>
+            <select id="id_livre" name="id_livre" required>
+                <!-- Remplir avec les livres disponibles -->
+                <option value="1">Le Petit Prince</option>
+                <option value="2">Les Misérables</option>
+            </select><br><br>
+
+            <label for="id_abonnement">Abonnement :</label>
+            <select id="id_abonnement" name="id_abonnement" required>
+                <!-- Remplir avec les abonnements -->
+                <option value="1">John Doe</option>
+                <option value="2">Jane Doe</option>
+            </select><br><br>
+
+            <button type="submit">Emprunter</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 La Maison du Livre - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
