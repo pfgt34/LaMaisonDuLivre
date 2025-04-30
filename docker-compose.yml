@@ -16,7 +16,7 @@ services:
     image: php:8.2-apache  # PHP avec Apache
     container_name: php-container
     volumes:
-      - ./src:/var/www/html  # Lien vers le répertoire src contenant ton code PHP
+      - ./html:/var/www/html  # Lien vers le répertoire src contenant ton code PHP
     ports:
       - "8080:80"  # Port pour accéder à PHP
 
